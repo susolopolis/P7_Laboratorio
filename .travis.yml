@@ -12,6 +12,8 @@ addons:
     organization: "susolopolis"
     token:
       secure: "6f08c48e26cdedfabf95fc4664dfa7c52a54e099" # encrypted value of your token
-script:
-  
- -mvn clean verify sonar:sonar 
+install:
+    bash <(curl -s -L http://bit.ly/install-sonar-scanner)
+
+after_success:
+    sonar-scanner
