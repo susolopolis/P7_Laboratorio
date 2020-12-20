@@ -7,6 +7,12 @@ language: java
 jdk:
   - openjdk11
 
+addons:
+  sonarcloud:
+    organization: "susolopolis"
+    token:
+      secure: "6f08c48e26cdedfabf95fc4664dfa7c52a54e099" # encrypted value of your token
 script:
   
   - mvn clean install verify
+  - sonar-scanner
