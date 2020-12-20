@@ -16,4 +16,4 @@ install:
     bash <(curl -s -L http://bit.ly/install-sonar-scanner)
 
 after_success:
-    sonar-scanner
+    -sonar-scanner
