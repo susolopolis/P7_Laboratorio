@@ -6,17 +6,41 @@ dist: xenial
 language: java
 jdk:
   - openjdk11
+  
+ branches:
+  except:
+    - gh-pages
+
+# Environment variables
+env:
+  global:
+    - GH_REPO_NAME: P7_Laboratorio
+    - DOXYFILE: $TRAVIS_BUILD_DIR/Doxyfile
+    - GH_REPO_REF: github.com/susolopolis/P7_Laboratorio.git
+
 addons:
+  apt:
+    packages:
+      - doxygen
+      - doxygen-doc
+      - doxygen-latex
+      - doxygen-gui
+      - graphviz
+      
   sonarcloud:
     organization: "susolopolis"
     token:
       secure: "SONAR_TOKEN" # encrypted value of your token
+      
 install:
     bash <(curl -s -L http://bit.ly/install-sonar-scanner)
-    
-    sudo apt-get doxygen
 
+script:
+  - make
+  
 after_success:
-    -doxygen Doxyfile
+ - cd $TRAVIS_BUILD_DIR
+  - chmod +x generateDocumentation.sh
+  - ./generateDocumentation.sh
     
     
