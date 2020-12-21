@@ -18,3 +18,11 @@ addons:
 script:
   # other script steps might be done before running the actual analysis
  - mvn clean verify sonar:sonar -Pcoverage -Dsonar.login=84350fe6a3e3b577c66d5e3aefe27e64e529baf6
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: docs/html
+  github_token: $GH_REPO_TOKEN
+  on:
+    branch: master
