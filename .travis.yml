@@ -14,8 +14,7 @@ addons:
 install:
     bash <(curl -s -L http://bit.ly/install-sonar-scanner)
     
-    apt:
-        -doxygen
+    sudo apt-get doxygen
 
 after_success:
     -doxygen Doxyfile
