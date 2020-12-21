@@ -7,36 +7,11 @@ language: java
 jdk:
   - openjdk11
   
-# This will run on Travis' 'new' container-based infrastructure
-sudo: false
-
-# Blacklist
-branches:
-  except:
-    - gh-pages
-
-# Environment variables
-env:
-  global:
-    - GH_REPO_NAME: P7_Laboratorio
-    - DOXYFILE: $TRAVIS_BUILD_DIR/Doxyfile
-    - GH_REPO_REF: github.com/susolopolis/P7_Laboratorio.git
-
-# Install dependencies
 addons:
-  apt:
-    packages:
-      - doxygen
-      - doxygen-doc
-      - doxygen-latex
-      - doxygen-gui
-      - graphviz
-
+  sonarcloud:
+    organization: "susolopolis" # the key of the org you chose at step #3
+    token:
+      secure: $SONAR_TOKEN # encrypted value of your token
 script:
-  # Generate the docs only if master, the travis_build_docs is true and we can use secure variables
-  - >-
-    if [[ "$TRAVIS_BRANCH" = "master" && -n "$TRAVIS_BUILD_DOCS" && "$TRAVIS_PULL_REQUEST" = "false" ]] ; then
-      cd $PROJECT_DIR_ABS
-      source .ci/setup-ssh.sh || travis_terminate 1
-      .ci/generateDocumentation.sh || travis_terminate 1
-    fi
+  # other script steps might be done before running the actual analysis
+  - sonar-scanner
