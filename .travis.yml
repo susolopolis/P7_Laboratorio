@@ -11,7 +11,7 @@ addons:
   sonarcloud:
     organization: "susolopolis"
     token:
-      secure: "6f08c48e26cdedfabf95fc4664dfa7c52a54e099" # encrypted value of your token
+      secure: "SONAR_TOKEN" # encrypted value of your token
 install:
     bash <(curl -s -L http://bit.ly/install-sonar-scanner)
 
