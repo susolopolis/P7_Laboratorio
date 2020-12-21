@@ -1,0 +1,10 @@
+digraph "es.ull.passengers.PassengerTest"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="es.ull.passengers.PassengerTest",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" testing" ,fontname="Helvetica"];
+  Node2 [label="es.ull.flights.Flight",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ull_1_1flights_1_1_flight.html"];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Pasajero" ,fontname="Helvetica"];
+  Node3 [label="es.ull.passengers.Passenger",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ull_1_1passengers_1_1_passenger.html",tooltip="Clase Passenger: Definicion y funciones asociadas. "];
+}
