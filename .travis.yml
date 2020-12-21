@@ -29,10 +29,9 @@ addons:
       - doxygen-doc
       - doxygen-latex
       - doxygen-gui
-      - graphviz
-
+      - graphviz            
+      
 # Generate and deploy documentation
 after_success:
   - cd $TRAVIS_BUILD_DIR
-  - chmod +x generateDocumentation.sh
-  - ./generateDocumentation.sh
+  - doxygen Doxyfile
