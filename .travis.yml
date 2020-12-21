@@ -18,7 +18,7 @@ install:
     apt:
         -doxygen
 
-script:
+after_success:
     -doxygen Doxyfile
     
     
