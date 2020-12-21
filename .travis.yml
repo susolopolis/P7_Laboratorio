@@ -18,4 +18,4 @@ install:
 
 script:
     -sonar-scanner
-    -doxygen Doxyfile
+    
