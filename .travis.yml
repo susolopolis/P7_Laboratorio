@@ -1,12 +1,7 @@
-# Virtual Machine Configuration
-os: linux
-dist: xenial
+# This will run on Travis' 'new' container-based infrastructure
+sudo: false
 
-# Project JDK
-language: java
-jdk:
-  - openjdk11
-  
+# Blacklist
  branches:
   except:
     - gh-pages
@@ -26,15 +21,7 @@ addons:
       - doxygen-latex
       - doxygen-gui
       - graphviz
-      
-  sonarcloud:
-    organization: "susolopolis"
-    token:
-      secure: "SONAR_TOKEN" # encrypted value of your token
-      
-install:
-    bash <(curl -s -L http://bit.ly/install-sonar-scanner)
-
+    
 script:
   - make
   
