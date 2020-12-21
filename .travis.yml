@@ -16,6 +16,6 @@ install:
     bash <(curl -s -L http://bit.ly/install-sonar-scanner)
     sudo apt-get install doxygen
 
-after_success:
+script:
     -sonar-scanner
     -doxygen Doxyfile
